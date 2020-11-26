@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         'use strict';
+//Módosítsd úgy a függvényed, hogy paraméterként mind number, mind BigInt típusú adatokat is elfogadjon! Amennyiben valamelyik paraméter BigInt, úgy a number-eket is automatikusan konvertálja BigInt-é!
 
+const filterNonSafeNumbers = (...numbers) =>
+            numbers.forEach(item => Number.isSafeInteger(item)) || Number.isSafeInteger(numbers.reduce((previousValue, currentValue) => previousValue + currentValue)) ? numbers.reduce((previousValue, currentValue) => previousValue + currentValue) : numbers.map(item => BigInt(item)).reduce((previousValue, currentValue) => previousValue + currentValue)
         
+
+        console.log(filterNonSafeNumbers(1547, 25647, 4895652, 265897413559, 456788532326, 9007199254n));
+
 
     </script>
 </body>
+
 </html>
