@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Írj egy függvényt, ami a paraméterként kapott tetszőleges darabszámú, tetszőlegesen méretű egész számot összead, és visszatér az összeadás végeredményével! A paraméterként kapott értékek egyszerű number típusúak legyenek! Amennyiben bármelyik paraméter értéke, vagy a részeredmény meghaladja a biztonságos tartomány, automatikusan konvertáljad BigIntbe, és így számoljunk tovább, és természetesen a visszatérési érték is BigInt legyen!
+
+
+        const filterNonSafeNumbers = (arr) =>
+            arr.every(item => Number.isSafeInteger(item)) && Number.isSafeInteger(arr.reduce((previousValue, currentValue) => previousValue + currentValue)) ? arr.reduce((previousValue, currentValue) => previousValue + currentValue) : arr.map(item => BigInt(item)).reduce((previousValue, currentValue) => previousValue + currentValue)
+        
+
+        console.log(filterNonSafeNumbers([1547, 25647, 4895652, 265897413559, 456788532326, 9007199254740888]));
+        
+
+
+    </script>
+</body>
+
+</html>
